@@ -24,7 +24,7 @@ int	export(char **args, t_hashmap env_variables);
 int	print_export(t_hashmap env_variables);
 int	export_variables(char **args, t_hashmap env_variables);
 int	export_variable(char *variable, t_hashmap env_variables);
-int	pwd(void);
+int	pwd(t_hashmap env_variables);
 int	unset(char **args, t_hashmap env_variables);
 
 #endif

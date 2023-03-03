@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                 :+:      :+:    :+:   */
+/*   dlst_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfries <vfries@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 15:39:15 by vfries            #+#    #+#             */
-/*   Updated: 2022/10/13 15:40:15 by vfries           ###   ########lyon.fr   */
+/*   Created: 2023/01/09 01:16:43 by vfries            #+#    #+#             */
+/*   Updated: 2023/03/03 17:31:27 by vfries           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_linked_list.h"
 
-size_t	ft_lsti_size(t_list_i *lst)
-{
-	size_t	size;
+// TODO
+// void	ft_dlst_push(t_dlist **dst, t_dlist **src)
+// {
+// 	t_dlist	*tmp;
 
-	size = 0;
-	while (lst)
-	{
-		size++;
-		lst = lst->next;
-	}
-	return (size);
-}
+// 	if (dst == NULL || src == NULL || *src == NULL)
+// 		return ;
+// 	tmp = (*src)->next;
+// 	(*src)->next = *dst;
+// 	*dst = *src;
+// 	*src = tmp;
+// }

@@ -53,6 +53,20 @@ SRC =\
 	io/printf/formating/format_u_x.c	\
 \
 \
+	linked_list/doubly_linked_void_ptr/dlst_get_next_free_current.c	\
+	linked_list/doubly_linked_void_ptr/dlst_of_dlst_clear.c			\
+	linked_list/doubly_linked_void_ptr/dlst_push.c					\
+	linked_list/doubly_linked_void_ptr/dlst_reverse.c				\
+	linked_list/doubly_linked_void_ptr/dlstadd_back.c				\
+	linked_list/doubly_linked_void_ptr/dlstadd_front.c				\
+	linked_list/doubly_linked_void_ptr/dlstclear.c					\
+	linked_list/doubly_linked_void_ptr/dlstdelone.c					\
+	linked_list/doubly_linked_void_ptr/dlstiter.c					\
+	linked_list/doubly_linked_void_ptr/dlstlast.c					\
+	linked_list/doubly_linked_void_ptr/dlstmap.c					\
+	linked_list/doubly_linked_void_ptr/dlstnew.c					\
+	linked_list/doubly_linked_void_ptr/dlstsize.c					\
+\
 	linked_list/int/lsti_add_back.c					\
 	linked_list/int/lsti_add_front.c				\
 	linked_list/int/lsti_clear.c					\
@@ -68,19 +82,19 @@ SRC =\
 	linked_list/int/lsti_reverse.c					\
 	linked_list/int/lsti_size.c						\
 \
-	linked_list/lst_get_next_free_current.c	\
-	linked_list/lst_of_lst_clear.c			\
-	linked_list/lst_push.c					\
-	linked_list/lst_reverse.c				\
-	linked_list/lstadd_back.c				\
-	linked_list/lstadd_front.c				\
-	linked_list/lstclear.c					\
-	linked_list/lstdelone.c					\
-	linked_list/lstiter.c					\
-	linked_list/lstlast.c					\
-	linked_list/lstmap.c					\
-	linked_list/lstnew.c					\
-	linked_list/lstsize.c					\
+	linked_list/void_ptr/lst_get_next_free_current.c	\
+	linked_list/void_ptr/lst_of_lst_clear.c				\
+	linked_list/void_ptr/lst_push.c						\
+	linked_list/void_ptr/lst_reverse.c					\
+	linked_list/void_ptr/lstadd_back.c					\
+	linked_list/void_ptr/lstadd_front.c					\
+	linked_list/void_ptr/lstclear.c						\
+	linked_list/void_ptr/lstdelone.c					\
+	linked_list/void_ptr/lstiter.c						\
+	linked_list/void_ptr/lstlast.c						\
+	linked_list/void_ptr/lstmap.c						\
+	linked_list/void_ptr/lstnew.c						\
+	linked_list/void_ptr/lstsize.c						\
 \
 \
 	math/angle_to_theta.c	\

@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                 :+:      :+:    :+:   */
+/*   dlstnew.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfries <vfries@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 15:39:15 by vfries            #+#    #+#             */
-/*   Updated: 2022/10/13 15:40:15 by vfries           ###   ########lyon.fr   */
+/*   Created: 2022/10/12 21:44:30 by vfries            #+#    #+#             */
+/*   Updated: 2023/03/03 17:49:51 by vfries           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_linked_list.h"
+#include <stdlib.h>
 
-size_t	ft_lsti_size(t_list_i *lst)
+t_dlist	*ft_dlstnew(void *content)
 {
-	size_t	size;
+	t_dlist	*new;
 
-	size = 0;
-	while (lst)
-	{
-		size++;
-		lst = lst->next;
-	}
-	return (size);
+	new = malloc(sizeof(*new));
+	if (new == NULL)
+		return (NULL);
+	new->previous = NULL;
+	new->content = content;
+	new->next = NULL;
+	return (new);
 }

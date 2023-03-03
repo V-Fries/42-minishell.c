@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                 :+:      :+:    :+:   */
+/*   dlst_reverse.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfries <vfries@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 15:39:15 by vfries            #+#    #+#             */
-/*   Updated: 2022/10/13 15:40:15 by vfries           ###   ########lyon.fr   */
+/*   Created: 2022/11/12 21:22:03 by vfries            #+#    #+#             */
+/*   Updated: 2023/03/03 17:32:37 by vfries           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_linked_list.h"
+#include <stddef.h>
 
-size_t	ft_lsti_size(t_list_i *lst)
-{
-	size_t	size;
+//TODO
+// t_dlist	*ft_dlst_reverse(t_dlist **lst)
+// {
+// 	t_dlist	*previous;
+// 	t_dlist	*current;
+// 	t_dlist	*next;
 
-	size = 0;
-	while (lst)
-	{
-		size++;
-		lst = lst->next;
-	}
-	return (size);
-}
+// 	previous = NULL;
+// 	current = *lst;
+// 	while (current)
+// 	{
+// 		next = current->next;
+// 		current->next = previous;
+// 		previous = current;
+// 		current = next;
+// 	}
+// 	*lst = previous;
+// 	return (*lst);
+// }

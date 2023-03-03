@@ -6,16 +6,40 @@
 /*   By: vfries <vfries@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 11:01:01 by vfries            #+#    #+#             */
-/*   Updated: 2023/01/27 06:16:24 by vfries           ###   ########lyon.fr   */
+/*   Updated: 2023/03/03 17:54:55 by vfries           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LINKED_LIST_H
 # define FT_LINKED_LIST_H
 
-// Since we almost always use the NULL definition with linked list
 # include <stddef.h>
 
+// Doubly linked void *
+typedef struct s_dlist
+{
+	struct s_dlist	*previous;
+	void			*content;
+	struct s_dlist	*next;
+}	t_dlist;
+
+t_dlist		*ft_dlst_get_next_free_current(t_dlist **lst, void (*del)(void *));
+void		ft_dlst_of_dlst_clear(t_dlist **lst, void (*del)(void *));
+// TODO ft_dlst_push()
+// void		ft_dlst_push(t_dlist **dst, t_dlist **src);
+// TODO ft_dlst_reverse()
+// t_dlist		*ft_dlst_reverse(t_dlist **lst);
+void		ft_dlstadd_back(t_dlist **lst, t_dlist *new);
+void		ft_dlstadd_front(t_dlist **lst, t_dlist *new);
+void		ft_dlstclear(t_dlist **lst, void (*del)(void *));
+void		ft_dlstdelone(t_dlist *lst, void (*del)(void *));
+void		ft_dlstiter(t_dlist *lst, void (*f)(void *));
+t_dlist		*ft_dlstlast(t_dlist *lst);
+t_dlist		*ft_dlstmap(t_dlist *lst, void *(*f)(void *), void (*del)(void *));
+t_dlist		*ft_dlstnew(void *content);
+int			ft_dlstsize(t_dlist *lst);
+
+// void *
 typedef struct s_list
 {
 	void			*content;
@@ -36,6 +60,7 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list		*ft_lstnew(void *content);
 int			ft_lstsize(t_list *lst);
 
+// int
 typedef struct s_list_i
 {
 	int				content;

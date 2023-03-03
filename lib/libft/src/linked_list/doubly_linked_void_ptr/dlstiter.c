@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                 :+:      :+:    :+:   */
+/*   dlstiter.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfries <vfries@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 15:39:15 by vfries            #+#    #+#             */
-/*   Updated: 2022/10/13 15:40:15 by vfries           ###   ########lyon.fr   */
+/*   Created: 2022/10/13 16:02:54 by vfries            #+#    #+#             */
+/*   Updated: 2023/03/03 17:43:32 by vfries           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_linked_list.h"
+#include "stddef.h"
 
-size_t	ft_lsti_size(t_list_i *lst)
+void	ft_dlstiter(t_dlist *lst, void (*f)(void *))
 {
-	size_t	size;
-
-	size = 0;
+	if (f == NULL)
+		return ;
 	while (lst)
 	{
-		size++;
+		f(lst->content);
 		lst = lst->next;
 	}
-	return (size);
 }

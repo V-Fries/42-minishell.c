@@ -4,7 +4,8 @@ NAME			=	minishell
 SRC_PATH		=	src/
 
 SRC				=\
-	built-in/cd.c						\
+	built-in/cd/cd.c					\
+	built-in/cd/get_chdir_input.c		\
 	built-in/echo.c						\
 	built-in/env.c						\
 	built-in/exit.c						\
@@ -106,7 +107,7 @@ DIR_BUILD		=	.build/
 OBJS			=	$(patsubst %.c, $(DIR_BUILD)%.o, $(SRC))
 DEPS			=	$(patsubst %.c, $(DIR_BUILD)%.d, $(SRC))
 DEPS_FLAGS		=	-MMD -MP
-CFLAGS			=	-Wall -Wextra -Werror  -g3# -fsanitize=address -g3
+CFLAGS			=	-Wall -Wextra -Werror  -g3 -fsanitize=address -g3
 RM				=	rm -rf
 AR				=	ar rcs
 
@@ -145,6 +146,24 @@ fclean:	clean
 .PHONY:	re
 re:		fclean
 		$(MAKE) all
+
+.PHONY:	leaks
+leaks:	all
+		echo "{" > valgrind_ignore_leaks.txt
+		echo "    leak readline" >> valgrind_ignore_leaks.txt
+		echo "    Memcheck:Leak" >> valgrind_ignore_leaks.txt
+		echo "    ..." >> valgrind_ignore_leaks.txt
+		echo "    fun:readline" >> valgrind_ignore_leaks.txt
+		echo "}" >> valgrind_ignore_leaks.txt
+		echo "{" >> valgrind_ignore_leaks.txt
+		echo "    leak add_history" >> valgrind_ignore_leaks.txt
+		echo "    Memcheck:Leak" >> valgrind_ignore_leaks.txt
+		echo "    ..." >> valgrind_ignore_leaks.txt
+		echo "    fun:add_history" >> valgrind_ignore_leaks.txt
+		echo "}" >> valgrind_ignore_leaks.txt
+		valgrind --suppressions=valgrind_ignore_leaks.txt --leak-check=full\
+			--show-leak-kinds=all --track-origins=yes --verbose\
+			--show-mismatched-frees=yes --read-var-info=yes ./${NAME}
 
 -include $(DEPS)
 

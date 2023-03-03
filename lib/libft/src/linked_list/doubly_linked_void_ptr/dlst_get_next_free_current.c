@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                 :+:      :+:    :+:   */
+/*   dlst_get_next_free_current.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vfries <vfries@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 15:39:15 by vfries            #+#    #+#             */
-/*   Updated: 2022/10/13 15:40:15 by vfries           ###   ########lyon.fr   */
+/*   Created: 2022/12/03 02:30:21 by vfries            #+#    #+#             */
+/*   Updated: 2023/03/03 17:29:10 by vfries           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_linked_list.h"
+#include <stdlib.h>
 
-size_t	ft_lsti_size(t_list_i *lst)
+t_dlist	*ft_dlst_get_next_free_current(t_dlist **lst, void (*del)(void *))
 {
-	size_t	size;
+	t_dlist	*next;
 
-	size = 0;
-	while (lst)
-	{
-		size++;
-		lst = lst->next;
-	}
-	return (size);
+	if (lst == NULL || *lst == NULL)
+		return (NULL);
+	next = (*lst)->next;
+	if (del != NULL)
+		del((*lst)->content);
+	free(*lst);
+	next->previous = NULL;
+	*lst = next;
+	return (next);
 }
