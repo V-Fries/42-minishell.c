@@ -25,10 +25,8 @@ typedef struct s_dlist
 
 t_dlist		*ft_dlst_get_next_free_current(t_dlist **lst, void (*del)(void *));
 void		ft_dlst_of_dlst_clear(t_dlist **lst, void (*del)(void *));
-// TODO ft_dlst_push()
-// void		ft_dlst_push(t_dlist **dst, t_dlist **src);
-// TODO ft_dlst_reverse()
-// t_dlist		*ft_dlst_reverse(t_dlist **lst);
+void		ft_dlst_push(t_dlist **dst, t_dlist **src);
+t_dlist		*ft_dlst_reverse(t_dlist **lst);
 void		ft_dlstadd_back(t_dlist **lst, t_dlist *new);
 void		ft_dlstadd_front(t_dlist **lst, t_dlist *new);
 void		ft_dlstclear(t_dlist **lst, void (*del)(void *));
@@ -37,7 +35,7 @@ void		ft_dlstiter(t_dlist *lst, void (*f)(void *));
 t_dlist		*ft_dlstlast(t_dlist *lst);
 t_dlist		*ft_dlstmap(t_dlist *lst, void *(*f)(void *), void (*del)(void *));
 t_dlist		*ft_dlstnew(void *content);
-int			ft_dlstsize(t_dlist *lst);
+size_t		ft_dlstsize(t_dlist *lst);
 
 // void *
 typedef struct s_list
@@ -58,7 +56,7 @@ void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstlast(t_list *lst);
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list		*ft_lstnew(void *content);
-int			ft_lstsize(t_list *lst);
+size_t		ft_lstsize(t_list *lst);
 
 // int
 typedef struct s_list_i
@@ -80,6 +78,6 @@ t_list_i	*ft_lsti_map(t_list_i *lst, int (*f)(int));
 t_list_i	*ft_lsti_new(int data);
 void		ft_lsti_push(t_list_i **dst, t_list_i **src);
 t_list_i	*ft_lsti_reverse(t_list_i **lst);
-int			ft_lsti_size(t_list_i *lst);
+size_t		ft_lsti_size(t_list_i *lst);
 
 #endif

@@ -24,7 +24,7 @@ void	ft_dlst_of_dlst_clear(t_dlist **lst, void (*del)(void *))
 	{
 		next = (*lst)->next;
 		node = (*lst)->content;
-		ft_dlst_clear(&node, del);
+		ft_dlstclear(&node, del);
 		free(*lst);
 		*lst = next;
 	}

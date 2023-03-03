@@ -12,15 +12,17 @@
 
 #include "ft_linked_list.h"
 
-// TODO
-// void	ft_dlst_push(t_dlist **dst, t_dlist **src)
-// {
-// 	t_dlist	*tmp;
+void	ft_dlst_push(t_dlist **dst, t_dlist **src)
+{
+	t_dlist	*tmp;
 
-// 	if (dst == NULL || src == NULL || *src == NULL)
-// 		return ;
-// 	tmp = (*src)->next;
-// 	(*src)->next = *dst;
-// 	*dst = *src;
-// 	*src = tmp;
-// }
+	if (dst == NULL || src == NULL || *src == NULL)
+		return ;
+	tmp = *src;
+	*src = (*src)->next;
+	(*src)->previous = NULL;
+	tmp->next = *dst;
+	if (*dst != NULL)
+		(*dst)->previous = tmp;
+	*dst = tmp;
+}

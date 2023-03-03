@@ -11,24 +11,31 @@
 /* ************************************************************************** */
 
 #include "ft_linked_list.h"
-#include <stddef.h>
 
-//TODO
-// t_dlist	*ft_dlst_reverse(t_dlist **lst)
-// {
-// 	t_dlist	*previous;
-// 	t_dlist	*current;
-// 	t_dlist	*next;
+static void	swap_next_and_previous(t_dlist *node);
 
-// 	previous = NULL;
-// 	current = *lst;
-// 	while (current)
-// 	{
-// 		next = current->next;
-// 		current->next = previous;
-// 		previous = current;
-// 		current = next;
-// 	}
-// 	*lst = previous;
-// 	return (*lst);
-// }
+t_dlist	*ft_dlst_reverse(t_dlist **lst)
+{
+	t_dlist	*cursor;
+
+	if (lst == NULL || *lst == NULL)
+		return (NULL);
+	cursor = *lst;
+	while (cursor->next)
+	{
+		swap_next_and_previous(cursor);
+		cursor = cursor->previous;
+	}
+	swap_next_and_previous(cursor);
+	*lst = cursor;
+	return (*lst);
+}
+
+static void	swap_next_and_previous(t_dlist *node)
+{
+	t_dlist	*tmp;
+
+	tmp = node->next;
+	node->next = node->previous;
+	node->previous = tmp;
+}
