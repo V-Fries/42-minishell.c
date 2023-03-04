@@ -249,16 +249,14 @@ $(DIR_BUILD)%_debug.o:	$(SRC_PATH)%.c
 
 .PHONY:		test
 test:		$(NAME_TEST) $(NAME_TEST_DEBUG)
+			@./$(NAME_TEST_DEBUG)
 			@echo
 			leaks -atExit -- ./$(NAME_TEST)
-			@echo
-			@echo
-			./$(NAME_TEST_DEBUG)
 
 
 $(NAME_TEST):	$(OBJS_TEST) $(NAME)
-			$(CC) $(FLAGS) $(INCLUDES) -L. -lft $(OBJS_TEST)\
-				-o $(NAME_TEST)
+			$(CC) $(FLAGS) $(INCLUDES) $(OBJS_TEST) \
+				-L. -lft -o $(NAME_TEST)
 
 -include $(DEPS_TEST)
 $(TEST_BUILD_DIR)%.o:	$(TEST_DIR)%.c
@@ -267,8 +265,8 @@ $(TEST_BUILD_DIR)%.o:	$(TEST_DIR)%.c
 
 
 $(NAME_TEST_DEBUG):	$(OBJS_TEST_DEBUG) $(NAME_DEBUG)
-			$(CC) $(DEBUG_FLAGS) $(INCLUDES) -L. -lft_debug\
-				$(OBJS_TEST_DEBUG) -o $(NAME_TEST_DEBUG)
+			$(CC) $(DEBUG_FLAGS) $(INCLUDES) $(OBJS_TEST_DEBUG) \
+				-L. -lft -o $(NAME_TEST_DEBUG)
 
 -include $(DEPS_TEST_DEBUG)
 $(TEST_BUILD_DIR)%_debug.o:	$(TEST_DIR)%.c
