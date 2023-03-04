@@ -26,6 +26,7 @@ bool	ft_doubly_linked_void_ptr_test(void)
 	ft_dlst_reverse(&lst);
 	if (check_push(&lst))
 		return (ft_dlstclear(&lst, &free), true);
+	ft_dlstclear(&lst, &free);
 	return (false);
 }
 
