@@ -154,7 +154,7 @@ SRC =\
 \
 	sort/msort_int.c				\
 	sort/msort_str.c				\
-	sort/msort_str_ignore_case.c	\
+	sort/msort_str_ignore_case.c
 
 
 TEST_DIR = test/
@@ -168,7 +168,7 @@ SRCS_TEST =\
 	$(LIBFT_INCLUDE)ft_math.h.c			\
 	$(LIBFT_INCLUDE)ft_mem.h.c			\
 	$(LIBFT_INCLUDE)ft_numbers.h.c		\
-	$(LIBFT_INCLUDE)ft_sort.h.c		\
+	$(LIBFT_INCLUDE)ft_sort.h.c			\
 	$(LIBFT_INCLUDE)ft_string.h.c		\
 	$(LIBFT_INCLUDE)libft.h.c			\
 \
@@ -178,6 +178,8 @@ SRCS_TEST =\
 	$(SRC_PATH)bitmask/bitmask_test.c	\
 \
 	$(SRC_PATH)string/join/join_strs_test.c	\
+\
+	$(SRC_PATH)linked_list/doubly_linked_void_ptr.c	\
 \
 \
 	main.c
@@ -227,7 +229,7 @@ $(NAME):	$(OBJS)
 
 -include $(DEPS)
 $(DIR_BUILD)%.o:	$(SRC_PATH)%.c
-			$(MKDIR) $(shell dirname $@)
+			@$(MKDIR) $(shell dirname $@)
 			$(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 #---------------------------------- debug -------------------------------------#
@@ -240,7 +242,7 @@ $(NAME_DEBUG):	$(OBJS_DEBUG)
 
 -include $(DEPS_DEBUG)
 $(DIR_BUILD)%_debug.o:	$(SRC_PATH)%.c
-			$(MKDIR) $(shell dirname $@)
+			@$(MKDIR) $(shell dirname $@)
 			$(CC) $(DEBUG_FLAGS) $(INCLUDES) -c $< -o $@
 
 #----------------------------------- test -------------------------------------#
@@ -260,7 +262,7 @@ $(NAME_TEST):	$(OBJS_TEST) $(NAME)
 
 -include $(DEPS_TEST)
 $(TEST_BUILD_DIR)%.o:	$(TEST_DIR)%.c
-			$(MKDIR) $(shell dirname $@)
+			@$(MKDIR) $(shell dirname $@)
 			$(CC) $(FLAGS) $(INCLUDES) -I test/header -c $< -o $@
 
 
@@ -270,7 +272,7 @@ $(NAME_TEST_DEBUG):	$(OBJS_TEST_DEBUG) $(NAME_DEBUG)
 
 -include $(DEPS_TEST_DEBUG)
 $(TEST_BUILD_DIR)%_debug.o:	$(TEST_DIR)%.c
-			$(MKDIR) $(shell dirname $@)
+			@$(MKDIR) $(shell dirname $@)
 			$(CC) $(DEBUG_FLAGS) $(INCLUDES) -I test/header -c $< -o $@
 
 #---------------------------------- other -------------------------------------#
