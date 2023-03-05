@@ -89,10 +89,11 @@ static int	getcwd_error(char *path, t_hashmap env_variables)
 	chdir_input = get_chdir_input(new_pwd);
 	if (chdir_input == NULL)
 		perror("cd: error retrieving chdir_input");
-	else if (chdir(new_pwd) < 0)
+	else if (chdir(chdir_input) < 0)
 	{
 		ft_putstr_fd("cd: error retrieving current directory: ", STDERR_FILENO);
 		perror("getcwd: cannot access parent directories");
 	}
+	free(chdir_input);
 	return (0);
 }

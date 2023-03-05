@@ -83,6 +83,7 @@ SRC =\
 	linked_list/int/lsti_size.c						\
 \
 	linked_list/void_ptr/lst_get_next_free_current.c	\
+	linked_list/void_ptr/lst_join_strs.c				\
 	linked_list/void_ptr/lst_of_lst_clear.c				\
 	linked_list/void_ptr/lst_push.c						\
 	linked_list/void_ptr/lst_reverse.c					\
