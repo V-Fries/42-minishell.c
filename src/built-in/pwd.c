@@ -21,15 +21,15 @@ int	pwd(t_hashmap env_variables)
 {
 	char	*current_path;
 
+	current_path = ft_hm_get_content(env_variables, "PWD");
+	if (current_path != NULL)
+	{
+		ft_printf("%s\n", current_path);
+		return (exit_code(0));
+	}
 	current_path = getcwd(NULL, 0);
 	if (current_path == NULL)
 	{
-		current_path = ft_hm_get_content(env_variables, "PWD");
-		if (current_path != NULL)
-		{
-			ft_printf("%s\n", current_path);
-			return (exit_code(0));
-		}
 		print_error("pwd", NULL, strerror(errno));
 		return (exit_code(1));
 	}

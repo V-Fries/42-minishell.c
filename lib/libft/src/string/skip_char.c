@@ -6,13 +6,13 @@
 /*   By: vfries <vfries@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 19:29:14 by vfries            #+#    #+#             */
-/*   Updated: 2023/01/13 19:29:55 by vfries           ###   ########lyon.fr   */
+/*   Updated: 2023/03/05 19:28:27 by vfries           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_skip_char(char *str, char c)
+char	*ft_skip_char(const char *str, char c)
 {
 	while (*str == c)
 		str++;
-	return (str);
+	return ((char *)str);
 }

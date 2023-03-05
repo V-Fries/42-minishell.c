@@ -5,7 +5,7 @@ SRC_PATH		=	src/
 
 SRC				=\
 	built-in/cd/cd.c					\
-	built-in/cd/get_chdir_input.c		\
+	built-in/cd/get_cleaned_path.c		\
 	built-in/echo.c						\
 	built-in/env.c						\
 	built-in/exit.c						\
