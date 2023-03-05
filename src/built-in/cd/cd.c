@@ -20,8 +20,8 @@
 #include "built_in.h"
 
 static int	change_directory(char *path, t_hashmap env_variables);
-static bool	cwd_is_directory(void);
-static int	handle_cwd_not_a_directory(char *path, t_hashmap env_variables);
+static bool	does_cwd_exist(void);
+static int	handle_cwd_doesnt_exist(char *path, t_hashmap env_variables);
 static char	*get_new_path(t_hashmap env_variables, char *path);
 
 int	cd(char **args, t_hashmap env_variables)
@@ -50,8 +50,8 @@ static int	change_directory(char *path, t_hashmap env_variables)
 	char	*pwd;
 	char	*cleaned_path;
 
-	if (cwd_is_directory() == false && path[0] == '.')
-		return (handle_cwd_not_a_directory(path, env_variables));
+	if (does_cwd_exist() == false && path[0] == '.')
+		return (handle_cwd_doesnt_exist(path, env_variables));
 	cleaned_path = get_new_path(env_variables, path);
 	if (cleaned_path == NULL)
 		return (print_error("cd", "failed to get new path", get_error()), -1);
@@ -73,7 +73,7 @@ static int	change_directory(char *path, t_hashmap env_variables)
 	return (0);
 }
 
-static bool	cwd_is_directory(void)
+static bool	does_cwd_exist(void)
 {
 	char		*cwd;
 
@@ -82,11 +82,11 @@ static bool	cwd_is_directory(void)
 	return (cwd != NULL);
 }
 
-static int	handle_cwd_not_a_directory(char *path, t_hashmap env_variables)
+static int	handle_cwd_doesnt_exist(char *path, t_hashmap env_variables)
 {
 	char	*pwd;
 	char	*new_pwd;
-	char	*chdir_input;
+	char	*cleaned_new_pwd;
 
 	pwd = ft_hm_get_content(env_variables, "PWD");
 	if (ft_hm_add_elem(env_variables, "OLDPWD", pwd, &free) < 0)
@@ -97,17 +97,17 @@ static int	handle_cwd_not_a_directory(char *path, t_hashmap env_variables)
 		new_pwd = ft_strjoin(pwd, path);
 	if (new_pwd == NULL || ft_hm_add_elem(env_variables, "PWD", new_pwd, NULL))
 		return (perror("cd: failed to update PWD"), free(new_pwd), -1);
-	chdir_input = get_cleaned_path(new_pwd);
-	if (chdir_input == NULL)
-		perror("cd: error retrieving chdir_input");
-	else if (chdir(chdir_input) < 0)
+	cleaned_new_pwd = get_cleaned_path(new_pwd);
+	if (cleaned_new_pwd == NULL)
+		return (perror("cd: error retrieving cleaned_new_pwd"), -1);
+	if (chdir(cleaned_new_pwd) < 0)
 	{
 		ft_putstr_fd("cd: error retrieving current directory: ", STDERR_FILENO);
 		perror("getcwd: cannot access parent directories");
-		free(chdir_input);
+		free(cleaned_new_pwd);
 	}
-	else if (ft_hm_add_elem(env_variables, "PWD", chdir_input, &free) < 0)
-		return (perror("cd: failed to update PWD"), free(chdir_input), -1);
+	else if (ft_hm_add_elem(env_variables, "PWD", cleaned_new_pwd, &free) < 0)
+		return (perror("cd: failed to update PWD"), free(cleaned_new_pwd), -1);
 	return (0);
 }
 
