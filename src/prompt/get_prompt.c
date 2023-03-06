@@ -29,6 +29,8 @@
 #define BLUE_HIGH_INTENSITY "\001\e[0;94m\002"
 
 #define PURPLE "\001\e[0;35m\002"
+#define PURPLE_BOLD "\001\e[1;35m\002"
+#define PURPLE_BOLD_HIGH_INTENSITY "\001\e[1;95m\002"
 
 #define CYAN "\001\e[0;36m\002"
 #define CYAN_HIGH_INTENSITY "\001\e[0;96m\002"
@@ -111,7 +113,7 @@ static int	add_arrow(t_list **prompt)
 	if (exit_code(GET) != 0)
 		arrow = ft_strjoin_three(RED, ARROW, " ");
 	else
-		arrow = ft_strjoin_three(PURPLE, ARROW, " ");
+		arrow = ft_strjoin_three(PURPLE_BOLD_HIGH_INTENSITY, ARROW, " ");
 	return (add_elem_to_prompt(prompt, arrow));
 }
 
