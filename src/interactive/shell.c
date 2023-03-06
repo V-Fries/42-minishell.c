@@ -6,7 +6,7 @@
 /*   By: vfries <vfries@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 16:37:00 by tomy              #+#    #+#             */
-/*   Updated: 2023/03/05 23:48:39 by vfries           ###   ########.fr       */
+/*   Updated: 2023/03/06 00:37:19 by vfries           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ int	run_interactive_shell(t_minishell *minishell)
 		command = get_command(minishell->env_variables);
 	}
 	free(command);
-	if (isatty(STDOUT_FILENO))
-		ft_putstr("exit\n");
+	ft_putstr("exit\n");
 	ft_hm_clear(&minishell->env_variables, &free);
 	return (exit_code(GET));
 }
@@ -49,8 +48,8 @@ static char	*get_command(t_hashmap env_variables)
 	char	*prompt;
 	char	*command;
 
-	if (isatty(STDOUT_FILENO) == false)
-		return (readline(""));
+	if (isatty(STDIN_FILENO) == false)
+		return (readline("minishell$ "));
 	prompt = get_prompt(env_variables);
 	if (prompt == NULL)
 	{
