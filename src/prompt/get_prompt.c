@@ -6,7 +6,7 @@
 /*   By: vfries <vfries@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 11:40:00 by tomy              #+#    #+#             */
-/*   Updated: 2023/03/06 01:06:27 by vfries           ###   ########.fr       */
+/*   Updated: 2023/03/06 02:30:16 by vfries           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int	add_directory_path(t_list **prompt, t_hashmap env_variables)
 	char	*home_dir;
 	char	*cwd;
 	char	*result;
-	size_t	tmp;
+	size_t	home_dir_len;
 
 	if (ft_hm_get_content(env_variables, "PWD") != NULL)
 		cwd = ft_strdup(ft_hm_get_content(env_variables, "PWD"));
@@ -77,16 +77,14 @@ static int	add_directory_path(t_list **prompt, t_hashmap env_variables)
 	if (cwd == NULL)
 		return (-1);
 	home_dir = ft_hm_get_content(env_variables, "HOME");
-	tmp = ft_strlen(home_dir);
+	if (home_dir != NULL)
+		home_dir_len = ft_strlen(home_dir);
 	if (home_dir != NULL && *home_dir != '\0' && *cwd != '\0'
-		&& ft_strncmp(cwd, home_dir, tmp) == 0)
+		&& ft_strncmp(cwd, home_dir, home_dir_len) == 0)
 	{
 		cwd[0] = '~';
-		ft_strlcpy(cwd + 1, cwd + tmp, ft_strlen(cwd) + 1 - 1);
+		ft_strlcpy(cwd + 1, cwd + home_dir_len, ft_strlen(cwd) + 1 - 1);
 	}
-	tmp = ft_strlen(cwd);
-	if (cwd[tmp - 1] == '/')
-		cwd[tmp - 1] = '\0';
 	result = ft_strjoin_three(BLUE_HIGH_INTENSITY, cwd, " ");
 	free(cwd);
 	return (add_elem_to_prompt(prompt, result));
