@@ -6,7 +6,7 @@
 /*   By: vfries <vfries@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 11:40:00 by tomy              #+#    #+#             */
-/*   Updated: 2023/03/06 00:18:36 by vfries           ###   ########.fr       */
+/*   Updated: 2023/03/06 01:06:27 by vfries           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 #include "prompt.h"
 #include "env_variables.h"
 
-#define DARK_GREY "\001\e[0;30m\002"
+#define BLACK "\001\e[0;30m\002"
+#define BLACK_HIGH_INTENSITY "\001\e[0;90m\002"
 
 #define RED "\001\e[0;31m\002"
 
@@ -32,7 +33,7 @@
 #define CYAN "\001\e[0;36m\002"
 #define CYAN_HIGH_INTENSITY "\001\e[0;96m\002"
 
-#define LIGHT_GREY "\001\e[0;37m\002"
+#define WHITE "\001\e[0;37m\002"
 
 #define RESET "\001\e[m\002"
 
@@ -43,7 +44,7 @@ static int	add_git_branch(t_list **prompt, t_hashmap env_variables);
 static int	add_arrow(t_list **prompt);
 static int	add_elem_to_prompt(t_list **prompt, char *elem);
 
-char	*get_prompt(t_hashmap env_variables) // TODO remove define above
+char	*get_prompt(t_hashmap env_variables)
 {
 	t_list	*prompt;
 	char	*prompt_str;
@@ -86,7 +87,7 @@ static int	add_directory_path(t_list **prompt, t_hashmap env_variables)
 	tmp = ft_strlen(cwd);
 	if (cwd[tmp - 1] == '/')
 		cwd[tmp - 1] = '\0';
-	result = ft_strjoin_three(BLUE, cwd, " ");
+	result = ft_strjoin_three(BLUE_HIGH_INTENSITY, cwd, " ");
 	free(cwd);
 	return (add_elem_to_prompt(prompt, result));
 }
@@ -98,7 +99,7 @@ static int	add_git_branch(t_list **prompt, t_hashmap env_variables)
 	git_branch = get_git_branch(env_variables);
 	if (git_branch == NULL)
 		return (0);
-	if (add_elem_to_prompt(prompt, ft_strdup(DARK_GREY)) < 0)
+	if (add_elem_to_prompt(prompt, ft_strdup(BLACK_HIGH_INTENSITY)) < 0)
 		return (-1);
 	if (add_elem_to_prompt(prompt, git_branch) < 0)
 		return (-1);

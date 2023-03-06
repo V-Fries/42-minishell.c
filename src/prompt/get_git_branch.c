@@ -6,7 +6,7 @@
 /*   By: vfries <vfries@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 11:40:00 by tomy              #+#    #+#             */
-/*   Updated: 2023/03/06 00:08:48 by vfries           ###   ########.fr       */
+/*   Updated: 2023/03/06 01:08:58 by vfries           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ char	*get_git_branch(t_hashmap env_variables)
 	char		*tmp;
 	char		**envp;
 
-	// if (access(GIT_BINARY, F_OK | X_OK) == -1)
-	// 	return (ft_strdup(""));
 	envp = get_non_empty_envp(env_variables, GIT_BINARY);
 	if (envp == NULL)
 		return (NULL);
