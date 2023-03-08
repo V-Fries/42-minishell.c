@@ -230,7 +230,7 @@ add_executable(minishell
         src/parser/quotes.c
         src/parser/syntax.c
         src/prompt/get_command_result.c
-        src/prompt/get_git_branch.c
+        src/prompt/add_git_branch.c
         src/prompt/get_prompt.c
         src/signals/general_signal_handling.c
         src/signals/interactive_signal_handling.c
@@ -241,6 +241,6 @@ add_executable(minishell
         src/get_cursor_x_pos.c
         src/main.c
         src/run_minishellrc.c
-        src/built-in/alias/get_all_aliases.c)
+        src/built-in/alias/get_all_aliases.c src/prompt/add_directory_to_path.c src/built-in/cd/handle_cwd_doesnt_exist.c)
 
 target_link_libraries(minishell readline)
