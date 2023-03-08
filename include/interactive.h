@@ -14,6 +14,7 @@
 # define INTERACTIVE_H
 
 # include "libft.h"
+
 # include "minishell_struct.h"
 
 int		get_input_command(char **command, char *join, t_minishell *minishell);
@@ -22,6 +23,6 @@ int		run_interactive_parsing(char **command, t_minishell *minishell);
 int		get_here_docs_if_valid_syntax(char *command, char *complete_command,
 			t_minishell *minishell);
 
-int		run_interactive_shell(t_minishell *minishell, bool colored_prompt);
+int		run_interactive_shell(t_minishell *minishell);
 
 #endif

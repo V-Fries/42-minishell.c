@@ -22,11 +22,13 @@
 
 static int	add_arrow(t_list **prompt, bool colored_prompt);
 
-char	*get_prompt(t_hashmap env_variables, bool colored_prompt)
+char	*get_prompt(t_hashmap env_variables)
 {
+	bool	colored_prompt;
 	t_list	*prompt;
 	char	*prompt_str;
 
+	colored_prompt = is_valid_term(env_variables);
 	prompt = NULL;
 	if (add_directory_path(&prompt, env_variables, colored_prompt) < 0)
 		return (ft_lstclear(&prompt, &free), NULL);

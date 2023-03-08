@@ -64,6 +64,7 @@ SRC				=\
 	expansions/quotes.c					\
 	expansions/tildes.c					\
 	expansions/token.c					\
+	expansions/utils.c					\
 \
 \
 	error/error.c	\
@@ -101,6 +102,7 @@ SRC				=\
 	prompt/add_git_branch.c			\
 	prompt/get_command_result.c		\
 	prompt/get_prompt.c				\
+	prompt/is_valid_term.c		\
 \
 \
 	signals/general_signal_handling.c		\

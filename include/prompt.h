@@ -28,6 +28,8 @@ int		add_git_branch(t_list **prompt, t_hashmap env_variables,
 char	*get_command_result(char *path, char **args, char **envp);
 
 // get_prompt.c
-char	*get_prompt(t_hashmap env_variables, bool colored_prompt);
+char	*get_prompt(t_hashmap env_variables);
+
+bool	is_valid_term(t_hashmap env_variables);
 
 #endif
