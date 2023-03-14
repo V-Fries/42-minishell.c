@@ -75,7 +75,6 @@ SRC				=\
 	expansions/utils.c					\
 \
 \
-	interactive/delimiters.c		\
 	interactive/here_docs.c			\
 	interactive/here_docs_syntax.c	\
 	interactive/input.c				\

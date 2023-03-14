@@ -216,7 +216,6 @@ add_executable(minishell
         src/expansions/tildes.c
         src/expansions/token.c
         src/expansions/utils.c
-        src/interactive/delimiters.c
         src/interactive/here_docs.c
         src/interactive/here_docs_syntax.c
         src/interactive/input.c
