@@ -20,7 +20,8 @@ SRC				=\
 	builtins/env.c						\
 	builtins/exit.c						\
 	builtins/pwd.c						\
-	builtins/unset.c						\
+	builtins/unalias.c					\
+	builtins/unset.c					\
 \
 \
 	env_variables/get_env_variables.c	\

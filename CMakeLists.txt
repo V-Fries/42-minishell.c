@@ -8,7 +8,7 @@ include_directories(lib/libft/include)
 include_directories(lib/libft/src/io/get_next_line)
 
 add_executable(minishell
-        include/builtin.h
+        include/builtins.h
         include/env_variables.h
         include/error.h
         include/execute_single_line_command.h
