@@ -4,23 +4,23 @@ NAME			=	minishell
 SRC_PATH		=	src/
 
 SRC				=\
-	builtin/alias/alias.c				\
-	builtin/alias/get_all_aliases.c		\
+	builtins/alias/alias.c				\
+	builtins/alias/get_all_aliases.c		\
 \
-	builtin/cd/cd.c							\
-	builtin/cd/get_cleaned_path.c			\
-	builtin/cd/handle_cwd_doesnt_exist.c	\
+	builtins/cd/cd.c							\
+	builtins/cd/get_cleaned_path.c			\
+	builtins/cd/handle_cwd_doesnt_exist.c	\
 \
-	builtin/export/export.c		\
-	builtin/export/print.c		\
-	builtin/export/variables.c	\
-	builtin/export/variable.c	\
+	builtins/export/export.c		\
+	builtins/export/print.c		\
+	builtins/export/variables.c	\
+	builtins/export/variable.c	\
 \
-	builtin/echo.c						\
-	builtin/env.c						\
-	builtin/exit.c						\
-	builtin/pwd.c						\
-	builtin/unset.c						\
+	builtins/echo.c						\
+	builtins/env.c						\
+	builtins/exit.c						\
+	builtins/pwd.c						\
+	builtins/unset.c						\
 \
 \
 	env_variables/get_env_variables.c	\
