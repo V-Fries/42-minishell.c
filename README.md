@@ -6,9 +6,12 @@ Minishell is a project from the 42 school curriculum that involves creating a ba
 
 We completed this project in 2 months of work with my friend Vincent Fries (vfries).
 
+
+![Minishell example](example.png)
+
 # Get started
 
- ⚠️ Readline is require
+ ⚠️ Readline is required
 ```
 git clone https://github.com/tdameros/42-minishell
 cd 42-minishell/
@@ -28,20 +31,20 @@ Not use more than one global variable. Think about it. You will have to explain
 its purpose.
 
 
-# Fonctionality
+# Functionalities
 
 ### Operators
 
-| Operator                          | Example command               |
-|-----------------------------------|-------------------------------|
-| Input redirection: **<**          | grep 'shell' < Makefile       |
-| Output redirection: **>**         | cat Makefile > test.txt       |
-| Append output redirection: **>>** | cat Makefile >> test.txt      |
-| Here documents: **<<**            | cat << EOF                    |
-| Pipes: **&#124;**                 | ls &#124; grep 'c'            |
-| And: **&&**                       | apt update && apt upgrade     |
-| Or: **&#124;&#124;**              | something &#124;&#124; echo Hello World |
-| Parenthesis: **(** & **)**        | (ls &#124;&#124; echo Hello World) && echo minishell                              |
+| Operator                          | Example command                                       |
+|-----------------------------------|-------------------------------------------------------|
+| Input redirection: **<**          | grep 'shell' < Makefile                               |
+| Output redirection: **>**         | cat Makefile > test.txt                               |
+| Append output redirection: **>>** | cat Makefile >> test.txt                              |
+| Here documents: **<<**            | cat << EOF                                            |
+| Pipes: **&#124;**                 | ls &#124; grep 'c'                                    |
+| And: **&&**                       | apt update && apt upgrade                             |
+| Or: **&#124;&#124;**              | something &#124;&#124; echo Hello World               |
+| Parenthesis: **(** & **)**        | (ls &#124;&#124; echo Hello World) && echo minishell  |
  
 ### Interactive Mode
 
@@ -50,24 +53,24 @@ Interactive Minishell interprets unclosed quotes and unfinished commands.
 Minishell can be executed with the **-c option** to run a command without entering interactive mode.
 
 | Shortcut | Feature                             |
-|---|-------------------------------------|
+|----------|-------------------------------------|
 | *ctrl-C* | displays a new prompt on a new line |
 | *ctrl-D* | exits the shell                     |
-| ctrl-\ | does nothing                        |
+| ctrl-\   | does nothing                        |
 
 ### Builtins
 
-| Builtin   | Implementation |
-|-----------|---|
-| *echo*    | with option -n |
+| Builtin   | Implementation                        |
+|-----------|---------------------------------------|
+| *echo*    | with option -n                        |
 | *cd*      | with only a relative or absolute path |
-| *pwd*     | with no options |
-| *export*  | with no options |
-| *unset*   | with no options |
-| *env*     | with no options or arguments |
-| *exit*    | with no options |
-| *alias*   | with no options |
-| *unalias* | with no options |
+| *pwd*     | with no options                       |
+| *export*  | with no options                       |
+| *unset*   | with no options                       |
+| *env*     | with no options or arguments          |
+| *exit*    | with no options                       |
+| *alias*   | with no options                       |
+| *unalias* | with no options                       |
 
 ### Expansions
 
