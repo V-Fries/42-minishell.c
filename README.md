@@ -86,7 +86,7 @@ _Minishell alias implementation is not recursive and does not allow to interpret
 
 ### Minishellrc
 
-At startup the `.minishellrc` file in the `HOME` folder is executed.
+At startup the `.minishellrc` file in the `HOME` path is executed.
 
 Example :
 
