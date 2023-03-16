@@ -4,8 +4,10 @@
 
 Minishell is a project from the 42 school curriculum that involves creating a basic shell similar to bash
 
-We completed this project in 2 months of work with my friend Vincent Fries (vfries).
+This project was realized in 2 months by :
 
+- Vincent Fries (_vfries_)
+- Tom Damerose (_tdameros_)
 
 ![Minishell example](example.png)
 
